@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  keycloak_test:
+    image: quay.io/keycloak/keycloak:latest
+    command: start-dev
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres_keycloak_test
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_PASSWORD: Madastart1234*
+      KC_DB_USERNAME: valisoa
+      KC_DB_SCHEMA: public
+      KEYCLOAK_ADMIN: valisoa
+      KEYCLOAK_ADMIN_PASSWORD: Madastart1234*
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/test/certs/localhostcert.pem
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/test/certs/localhostkey.pem
+    ports:
+      - "7788:8080"
+      - "8843:8443"
+    depends_on:
+      postgres_keycloak_test:
+        condition: service_healthy
+    networks:
+      - keycloak_test_network
+    volumes:
+      - ./certs:/opt/keycloak/test/certs
+    restart: always
+
+  postgres_keycloak_test:
+    image: postgres
+    command: postgres -c 'max_connections=200'
+    volumes:
+      - pgdata_keycloak_test:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: valisoa
+      POSTGRES_PASSWORD: Madastart1234*
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U valisoa"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    ports:
+      - "5436:5432"
+    networks:
+      - keycloak_test_network
+    restart: always
+
+volumes:
+  pgdata_keycloak_test:
+
+networks:
+  keycloak_test_network:
+    driver: bridge
