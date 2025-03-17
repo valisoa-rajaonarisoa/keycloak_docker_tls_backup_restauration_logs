@@ -3,7 +3,3 @@ logs/keycloak.log
 certs/localhostcert.pem
 
 certs/localhostkey.pem
-
-backups/backup_*
-
-logs/keycloak.log
