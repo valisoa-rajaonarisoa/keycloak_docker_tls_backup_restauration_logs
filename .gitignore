@@ -1,0 +1,9 @@
+logs/keycloak.log
+
+certs/localhostcert.pem
+
+certs/localhostkey.pem
+
+backups/*
+
+logs/*

@@ -3,7 +3,7 @@ version: "3.8"
 services:
   keycloak_test:
     image: quay.io/keycloak/keycloak:latest
-    command: start-dev
+    entrypoint: "/bin/sh -c '/opt/keycloak/bin/kc.sh start-dev > /opt/keycloak/logs/keycloak.log 2>&1'" #cmd pour afficher le logs dans /opt/keycloak/logs/keycloak.log
     environment:
       KC_DB: postgres
       KC_DB_URL_HOST: postgres_keycloak_test
@@ -25,6 +25,7 @@ services:
       - keycloak_test_network
     volumes:
       - ./certs:/opt/keycloak/test/certs
+      - ./logs:/opt/keycloak/logs #recuperation du logs dans le containeur
     restart: always
 
   postgres_keycloak_test:

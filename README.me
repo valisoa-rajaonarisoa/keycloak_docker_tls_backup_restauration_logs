@@ -1,0 +1,44 @@
+
+# Guide d'utilisation  
+
+## 1) Lancement  
+
+**Pour démarrer l'application** :  
+Depuis la racine du projet, exécutez la commande suivante :  
+```bash
+./app.sh
+```
+
+---
+
+## 2) Sauvegarde (Backup)  
+
+**Pour créer une sauvegarde de la base de données** :  
+Depuis la racine du projet, exécutez :  
+```bash
+./scripts/backup.sh
+```
+Ce script va :  
+- Créer un backup dans le dossier `/tmp/backup` (en créant le répertoire s'il n'existe pas).  
+- Copier automatiquement le fichier de sauvegarde dans le dossier `backups` du projet.  
+
+---
+
+## 3) Restauration  
+
+**Pour restaurer une sauvegarde** :  
+Exécutez la commande suivante :  
+```bash
+./scripts/restauration <nom_du_backup.sql>
+```
+🔹 Exemple :  
+```bash
+./scripts/restauration backup_keycloakdb_2025-03-17.sql
+```
+
+Ce script va :  
+- Copier le fichier de sauvegarde dans le dossier `/tmp/restauration`.  
+- Supprimer toutes les tables existantes dans la base de données.  
+- Restaurer la base de données à partir du fichier de backup.  
+
+---
