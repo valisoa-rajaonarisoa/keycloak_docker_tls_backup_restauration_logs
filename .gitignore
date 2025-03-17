@@ -4,6 +4,6 @@ certs/localhostcert.pem
 
 certs/localhostkey.pem
 
-backups/*
+backups/backup_*
 
-logs/*
+logs/keycloak.log
