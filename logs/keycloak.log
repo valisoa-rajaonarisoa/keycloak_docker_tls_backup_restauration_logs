@@ -1,0 +1,14 @@
+Updating the configuration and installing your custom providers, if any. Please wait.
+2025-03-18 07:03:42,436 WARN  [io.qua.config] (build-40) Unrecognized configuration key "quarkus.smallrye-health.extensions.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2025-03-18 07:03:45,361 INFO  [io.qua.hib.orm.dep.HibernateOrmProcessor] (build-28) A legacy persistence.xml file is present in the classpath. This file will be used to configure JPA/Hibernate ORM persistence units, and any configuration of the Hibernate ORM extension will be ignored. To ignore persistence.xml files instead, set the configuration property 'quarkus.hibernate-orm.persistence-xml.ignore' to 'true'.
+2025-03-18 07:03:56,514 INFO  [io.qua.dep.QuarkusAugmentor] (main) Quarkus augmentation completed in 16318ms
+Running the server in development mode. DO NOT use this configuration in production.
+2025-03-18 07:04:01,904 INFO  [org.keycloak.quarkus.runtime.storage.infinispan.CacheManagerFactory] (ForkJoinPool.commonPool-worker-1) Starting Infinispan embedded cache manager
+2025-03-18 07:04:02,117 INFO  [org.infinispan.CONTAINER] (ForkJoinPool.commonPool-worker-1) Virtual threads support enabled
+2025-03-18 07:04:02,378 INFO  [org.infinispan.CONTAINER] (ForkJoinPool.commonPool-worker-1) ISPN000556: Starting user marshaller 'org.infinispan.commons.marshall.ImmutableProtoStreamMarshaller'
+2025-03-18 07:04:03,390 INFO  [org.keycloak.connections.infinispan.DefaultInfinispanConnectionProviderFactory] (main) Node name: node_566414, Site name: null
+2025-03-18 07:04:03,395 INFO  [org.keycloak.broker.provider.AbstractIdentityProviderMapper] (main) Registering class org.keycloak.broker.provider.mappersync.ConfigSyncEventListener
+2025-03-18 07:04:04,579 WARN  [io.agroal.pool] (main) Datasource '<default>': JDBC resources leaked: 3 ResultSet(s) and 0 Statement(s)
+2025-03-18 07:04:04,979 INFO  [io.quarkus] (main) Keycloak 26.1.3 on JVM (powered by Quarkus 3.15.3.1) started in 8.293s. Listening on: http://0.0.0.0:8080 and https://0.0.0.0:8443
+2025-03-18 07:04:04,980 INFO  [io.quarkus] (main) Profile dev activated. 
+2025-03-18 07:04:04,981 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, jdbc-postgresql, keycloak, narayana-jta, opentelemetry, reactive-routes, rest, rest-jackson, smallrye-context-propagation, vertx]

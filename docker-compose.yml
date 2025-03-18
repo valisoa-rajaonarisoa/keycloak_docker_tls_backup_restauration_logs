@@ -26,6 +26,8 @@ services:
     volumes:
       - ./certs:/opt/keycloak/test/certs
       - ./logs:/opt/keycloak/logs #recuperation du logs dans le containeur
+      - ./keycloak_themes:/opt/keycloak/themes
+
     restart: always
 
   postgres_keycloak_test:
